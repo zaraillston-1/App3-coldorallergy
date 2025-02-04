@@ -62,10 +62,10 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 .page {
     width: 100vw;
     height: 100vh;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: -100vw;
-    overflow-y: auto;
+    overflow-y: auto; display: block;
     z-index: 0;
     background-color: hsl(0,0%,100%);
 }
@@ -96,13 +96,13 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
   </div>
 
   <div id="content" class="w3-container">
-    <p>Are your eyes watery or itchy?</p>
+    <p>Do you have a fever?</p>
 
       <!-- Button for "Yes" -->
-      <button class="w3-btn w3-black" onclick="handleResponse('#three', 'yes')">Yes</button>
+      <button class="w3-btn w3-black" onclick="handleResponse('#three', 'no')">Yes</button>
 
       <!-- Button for "No" -->
-      <button class="w3-btn w3-black" onclick="handleResponse('#three', 'no')">No</button>
+      <button class="w3-btn w3-black" onclick="handleResponse('#three', 'yes')">No</button>
   </div>
 </div>
 
@@ -120,21 +120,23 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
   <div id="content" class="w3-container">
     <p>Do you have a fever?</p>
 
-      <!-- Button for "Yes" -->
-      <button class="w3-btn w3-black" onclick="handleResponse('#four', 'no')">Yes</button>
+    <!-- Button for "Yes" -->
+    <button class="w3-btn w3-black" onclick="handleResponse('#four', 'no')">Yes</button>
 
-      <!-- Button for "No" -->
-      <button class="w3-btn w3-black" onclick="handleResponse('#four', 'yes')">No</button>
+    <!-- Button for "No" -->
+    <button class="w3-btn w3-black" onclick="handleResponse('#four', 'yes')">No</button>
   </div>
 </div>
-
+	
+<footer class="w3-bottom w3-container w3-flat-carrot">
+	<p>DIY!</p>
 <div class="page" id="four">
   <div class="w3-container w3-flat-carrot">
     <h1>Question 3</h1>
   </div>
 
   <div id="content" class="w3-container">
-    <p>Do you have a sore throat?</p>
+    <p>Do you have a fever?</p>
 
     <!-- Button for "Yes" -->
     <button class="w3-btn w3-black" onclick="handleResponse('#five', 'no')">Yes</button>
@@ -150,19 +152,16 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
   </div>
 
   <div id="content" class="w3-container">
-    <p>Are your symptoms seasonal or chronic?</p>
+    <p>Do you have a fever?</p>
 
     <!-- Button for "Yes" -->
-    <button class="w3-btn w3-black" onclick="handleResponse('#six', 'yes')">Yes</button>
+    <button class="w3-btn w3-black" onclick="handleResponse('#six', 'no')">Yes</button>
 
     <!-- Button for "No" -->
-    <button class="w3-btn w3-black" onclick="handleResponse('#six', 'no')">No</button>
+    <button class="w3-btn w3-black" onclick="handleResponse('#six', 'yes')">No</button>
   </div>
 </div>
-	
-<footer class="w3-bottom w3-container w3-flat-carrot">
-	<p>DIY!</p>
-	
+
 </footer>
 
 </body>
