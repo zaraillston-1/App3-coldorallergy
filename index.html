@@ -35,26 +35,27 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
    </head> 
 
 <script>
+  let allergyCount = 0;
+  let coldCount = 0;
+
   function handleResponse(nextPageUrl, answer) {
     if (answer === 'yes') {
-      coldAdd();
+      coldCount++;
     } else {
-      allergyAdd();
+      allergyCount++;
     }
-    // Redirect to the next page
     window.location.href = nextPageUrl;
   }
 
-  function coldAdd() {
-    console.log("Fever condition recorded.");
-  }
-
-  function allergyAdd() {
-    console.log("No fever condition recorded.");
+  function calculateResults() {
+    const totalQuestions = allergyCount + coldCount;
+    const allergyPercentage = ((allergyCount / totalQuestions) * 100).toFixed(2);
+    const coldPercentage = ((coldCount / totalQuestions) * 100).toFixed(2);
+    document.getElementById("resultsOutput").innerHTML = `Allergy: ${allergyPercentage}%<br>Cold: ${coldPercentage}%`;
   }
 </script>
 
-<style>	
+<style>  
 .body {
      margin: 0em;
 }
@@ -62,10 +63,10 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 .page {
     width: 100vw;
     height: 100vh;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: -100vw;
-    overflow-y: auto;
+    overflow-y: auto; display: block;
     z-index: 0;
     background-color: hsl(0,0%,100%);
 }
@@ -73,6 +74,12 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
   .page:target {
     left: 0vw;
     z-index: 1;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 </style>
  
@@ -96,13 +103,10 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
   </div>
 
   <div id="content" class="w3-container">
-    <p>Are your eyes watery or itchy?</p>
+    <p>Do you have a fever?</p>
 
-      <!-- Button for "Yes" -->
-      <button class="w3-btn w3-black" onclick="handleResponse('#three', 'yes')">Yes</button>
-
-      <!-- Button for "No" -->
-      <button class="w3-btn w3-black" onclick="handleResponse('#three', 'no')">No</button>
+      <button class="w3-btn w3-black" onclick="handleResponse('#three', 'no')">Yes</button>
+      <button class="w3-btn w3-black" onclick="handleResponse('#three', 'yes')">No</button>
   </div>
 </div>
 
@@ -120,16 +124,14 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
   <div id="content" class="w3-container">
     <p>Do you have a fever?</p>
 
-      <!-- Button for "Yes" -->
-      <button class="w3-btn w3-black" onclick="handleResponse('#four', 'no')">Yes</button>
-
-      <!-- Button for "No" -->
-      <button class="w3-btn w3-black" onclick="handleResponse('#four', 'yes')">No</button>
+    <button class="w3-btn w3-black" onclick="handleResponse('#four', 'no')">Yes</button>
+    <button class="w3-btn w3-black" onclick="handleResponse('#four', 'yes')">No</button>
   </div>
 </div>
 
 <footer class="w3-bottom w3-container w3-flat-carrot">
 	<p>DIY!</p>
+</footer>
 
 <div class="page" id="four">
   <div class="w3-container w3-flat-carrot">
@@ -139,21 +141,19 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
   <div id="content" class="w3-container">
     <p>Do you have a sore throat?</p>
 
-    <!-- Button for "Yes" -->
     <button class="w3-btn w3-black" onclick="handleResponse('#five', 'no')">Yes</button>
-
-    <!-- Button for "No" -->
     <button class="w3-btn w3-black" onclick="handleResponse('#five', 'yes')">No</button>
   </div>
 </div>
+
+<footer class="w3-bottom w3-container w3-flat-carrot">
+	<p>DIY!</p>
+</footer>
 
 <div class="page" id="five">
   <div class="w3-container w3-flat-carrot">
     <h1>Question 4</h1>
   </div>
-
-  <div id="content" class="w3-container">
-    <p>Are your symptoms seasonal or chronic?</p>
 
   <div id="content" class="w3-container">
     <p>Are your symptoms seasonal or chronic?</p>
@@ -183,3 +183,4 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 
 </body>
 </html>
+
