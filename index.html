@@ -35,6 +35,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
       <link rel="stylesheet" href="w3.css">
       <link rel="stylesheet" href="w3-colors-flat.css">
    </head> 
+
 <!-- The code shown above is used to display the title of the app shown on the tab of the website page. -->
 
 <script>
@@ -48,8 +49,6 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
     }
     window.location.href = nextPageUrl;
   }
-The code above is used to define a Javascript functi0n that records a value dependent on the answer chosen, and switches
-to the next page when any "yes" or "no" button is pressed.
   function calculateResults() {
     const totalQuestions = allergyCount + coldCount;
     const allergyPercentage = ((allergyCount / totalQuestions) * 100).toFixed(2);
@@ -57,10 +56,12 @@ to the next page when any "yes" or "no" button is pressed.
     document.getElementById("resultsOutput").innerHTML = `Allergy: ${allergyPercentage}%<br>Cold: ${coldPercentage}%`;
   }
 </script>
+
 <!-- This code above is used to count the number of times that a coded allergy or cold symptom is recorded. The code above is used to define a Javascript functi0n that records a value dependent on the answer chosen, and switches
-to the next page when any "yes" or "no" button is pressed. -->
-<!-- This code above is used to calculate the results based on the values recorded from the answered questions. This code also
+to the next page when any "yes" or "no" button is pressed. The code above is used to define a Javascript functi0n that records a value dependent on the answer chosen, and switches
+to the next page when any "yes" or "no" button is pressed. This code above is used to calculate the results based on the values recorded from the answered questions. This code also
 displays the percentages of cold and flu when the "results" button is pressed. -->
+
 <style>  
 .body {
      margin: 0em;
